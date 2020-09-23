@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CoffeQR</string>
+    <string name="menu_qr">Menu QR</string>
+    <string name="mostrar_toast">Mostrar Toast</string>
+</resources>
