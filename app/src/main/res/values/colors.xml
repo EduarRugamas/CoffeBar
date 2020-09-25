@@ -6,4 +6,5 @@
     <color name="black">#000</color>
     <color name="white">#FFF</color>
     <color name="progressBar">#1B8FC1</color>
+    <color name="tabmenu">#1B8FC1</color>
 </resources>
