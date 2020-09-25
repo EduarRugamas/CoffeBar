@@ -1,4 +1,4 @@
-package com.example.coffeqr.Act_EscaneoQR
+package com.example.coffeqr.Screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

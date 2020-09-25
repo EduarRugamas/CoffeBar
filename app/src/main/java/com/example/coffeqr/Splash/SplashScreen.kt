@@ -4,8 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.widget.Toast
-import com.example.coffeqr.Act_EscaneoQR.ActivityEscanQR
+import com.example.coffeqr.Screens.ActivityEscanQR
 import com.example.coffeqr.R
 
 class SplashScreen : AppCompatActivity() {
