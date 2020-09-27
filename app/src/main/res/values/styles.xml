@@ -17,6 +17,10 @@
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="CustomTab" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">10sp</item>
+        
+    </style>
 
 
 </resources>

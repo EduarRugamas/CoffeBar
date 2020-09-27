@@ -6,36 +6,28 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.example.coffeqr.Fragments.Coffe_Fragment
 import com.example.coffeqr.Fragments.desserts_Fragment
 
-class ViewPageAdapter (fm : FragmentManager) : FragmentPagerAdapter(fm){
-    override fun getCount(): Int {
-        return 2
-    }
+class ViewPageAdapter (supportFragmentManager: FragmentManager) :
+    FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return when(position){
-            0->{
-                "Cafes"
-            }
-            1->{
-                "Postres"
-            }
-            else-> {
-                "Cafes"
-            }
-        }
+    private val mFragmentList = ArrayList<Fragment>()
+    private val mFragmentTitleList = ArrayList<String>()
+
+
+    override fun getCount(): Int {
+        return mFragmentList.size
     }
 
     override fun getItem(position: Int): Fragment {
-        return when (position) {
-            0-> {
-                Coffe_Fragment()
-            }
-            1-> {
-                    desserts_Fragment()
-            }
-            else-> {
-                Coffe_Fragment()
-            }
-        }
+        return mFragmentList[position]
     }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return mFragmentTitleList[position]
+    }
+
+    fun addFragment(fragment: Fragment, title: String){
+        mFragmentList.add(fragment)
+        mFragmentTitleList.add(title)
+    }
+
 }

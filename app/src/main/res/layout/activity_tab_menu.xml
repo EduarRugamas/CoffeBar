@@ -21,10 +21,11 @@
             app:titleTextColor="@color/white"
             />
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            app:tabTextAppearance="@style/CustomTab"
             app:tabBackground="@color/tabmenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tabLayout"
             app:tabMode="fixed"
             app:tabMaxWidth="0dp"
             app:tabGravity="fill"

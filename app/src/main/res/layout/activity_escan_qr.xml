@@ -24,7 +24,7 @@
             android:id="@+id/decoration_inferioir_splash"
             android:layout_width="800dp"
             android:layout_height="400dp"
-            android:layout_marginTop="500dp"
+            android:layout_marginTop="350dp"
             android:layout_marginStart="-280dp"
             android:src="@drawable/decoracion_inferior"
             tools:ignore="ContentDescription" />
