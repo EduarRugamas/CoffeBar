@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Screens.ActivityEscanQR" />
+        <activity android:name=".Screens.ActivityEscanQR" android:theme="@style/AppThemeMenu" />
         <activity android:name=".Screens.TabMenu" android:theme="@style/AppThemeMenu"/>
     </application>
 
