@@ -2,7 +2,7 @@ package com.example.coffeqr.Screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.coffeqr.Clases.ViewPageAdapter
+import com.example.coffeqr.Adapters.ViewPageAdapter
 import com.example.coffeqr.Fragments.Coffe_Fragment
 import com.example.coffeqr.Fragments.desserts_Fragment
 import com.example.coffeqr.R
@@ -13,12 +13,14 @@ class TabMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab_menu)
         setUpTabs()
-
-
     }
 
     private fun setUpTabs(){
+
+        toolbar.title = getString(R.string.title_appbar_layout)
+        setSupportActionBar(toolbar)
         val adapter = ViewPageAdapter(supportFragmentManager)
+
         adapter.addFragment(Coffe_Fragment(), "Cafes")
         adapter.addFragment(desserts_Fragment(), "Postres")
         viewPager.adapter = adapter

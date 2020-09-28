@@ -17,6 +17,6 @@ class SplashScreen : AppCompatActivity() {
          Handler().postDelayed({
             startActivity(Intent(this, ActivityEscanQR::class.java))
             finish()
-        }, 5000)
+        }, 3000)
     }
 }

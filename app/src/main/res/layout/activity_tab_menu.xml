@@ -12,14 +12,15 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:id="@+id/toolbar"
             android:background="@color/tabmenu"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/Theme.AppCompat.Light"
-            app:titleTextColor="@color/white"
             />
+
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             app:tabTextAppearance="@style/CustomTab"
@@ -29,7 +30,7 @@
             app:tabMode="fixed"
             app:tabMaxWidth="0dp"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorColor="@color/black"
             app:tabTextColor="@color/white"/>
     </com.google.android.material.appbar.AppBarLayout>
 
