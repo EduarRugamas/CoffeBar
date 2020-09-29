@@ -5,10 +5,32 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.Coffe_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_coffe"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/linea_divisor" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCoffes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+
 
 </FrameLayout>

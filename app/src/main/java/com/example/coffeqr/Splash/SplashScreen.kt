@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.coffeqr.Splash
 
 import android.content.Intent
