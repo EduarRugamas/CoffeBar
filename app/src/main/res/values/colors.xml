@@ -12,4 +12,5 @@
     <color name="fnd">#B7B3AF</color>
     <color name="fnd2">#77C4CD</color>
     <color name="fnd3">#4DBAC7</color>
+    <color name="place_holder">#dddddd</color>
 </resources>
