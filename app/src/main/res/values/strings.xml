@@ -7,5 +7,8 @@
     <string name="title_appbar_layout">Caffe Bar</string>
     <string name="abrir_menu">Abrir Menu</string>
     <string name="nave">nave</string>
+    <string name="itemCafe">Cafe americano</string>
+    <string name="itemprecio">$1.50</string>
+    <string name="number">1</string>
 
 </resources>
