@@ -1,5 +1,6 @@
 package com.example.coffeqr.Class
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,6 +19,7 @@ class Repo {
 
                 val llenandoLista = ListDataCoffe(imageUrl!!,nombre!!,precio!!)
                 listaVacia.add(llenandoLista)
+                Log.d("variables", "$nombre, $precio")
             }
             listaMutable.value = listaVacia
         }

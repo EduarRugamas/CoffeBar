@@ -5,24 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.desserts_Fragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/title_desserts"
-            android:textAlignment="center"
-            android:textSize="28sp"
-            android:textColor="@color/black"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@drawable/linea_divisor"
-            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcDesserts"
@@ -30,6 +12,6 @@
             android:layout_height="match_parent"/>
 
 
-    </LinearLayout>
+
 
 </FrameLayout>
