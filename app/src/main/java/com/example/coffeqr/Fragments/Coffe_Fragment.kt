@@ -34,24 +34,28 @@ class Coffe_Fragment : Fragment() {
         savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view : View = inflater.inflate(R.layout.fragment_coffe, container, false)
+        dataRecyclerview()
 
 
-                rcCoffes.apply {
-                    adapterC = CoffeAdapter(requireActivity())
-                    view.rcCoffes.layoutManager = LinearLayoutManager(activity)
-                    view.rcCoffes.adapter = adapterC
-                    view.shimmer_container.visibility = view.visibility
-                    view.shimmer_container.startShimmer()
-                    viewModel.fetchDataCoffe().observe(requireActivity(), {
-                        view.shimmer_container.stopShimmer()
-                        view.shimmer_container.visibility = View.GONE
-                        adapterC.setListData(it)
-                        adapterC.notifyDataSetChanged()
-                    })
-                }
 
 
         return view
+    }
+
+    private fun dataRecyclerview(){
+        rcCoffes.apply {
+            adapterC = CoffeAdapter(requireActivity())
+            view!!.rcCoffes.layoutManager = LinearLayoutManager(activity)
+            view!!.rcCoffes.adapter = adapterC
+            view!!.shimmer_container.visibility = view!!.visibility
+            view!!.shimmer_container.startShimmer()
+            viewModel.fetchDataCoffe().observe(requireActivity(), {
+                view!!.shimmer_container.stopShimmer()
+                view!!.shimmer_container.visibility = View.GONE
+                adapterC.setListData(it)
+                adapterC.notifyDataSetChanged()
+            })
+        }
     }
 
 }
