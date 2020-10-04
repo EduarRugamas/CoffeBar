@@ -29,25 +29,23 @@ class desserts_Fragment : Fragment() {
         // Inflate the layout for this fragment
         val view : View =  inflater.inflate(R.layout.fragment_desserts, container, false)
 
-        dataRecyclerview()
-
-        return view
-    }
-    private fun dataRecyclerview(){
         rcDesserts.apply {
             adapterP = PostresAdapter(requireActivity())
-            view!!.rcDesserts.layoutManager = LinearLayoutManager(activity)
-            view!!.rcDesserts.adapter = adapterP
-            view!!.shimmer_container.visibility = view!!.visibility
-            view!!.shimmer_container.startShimmer()
+            view.rcDesserts.layoutManager = LinearLayoutManager(activity)
+            view.rcDesserts.adapter = adapterP
+            view.shimmer_container.visibility = view.visibility
+            view.shimmer_container.startShimmer()
             viewModel.fetchDataPostres().observe(requireActivity(), {
-                view!!.shimmer_container.stopShimmer()
-                view!!.shimmer_container.visibility = View.GONE
+                view.shimmer_container.stopShimmer()
+                view.shimmer_container.visibility = View.GONE
                 adapterP.setListData(it)
                 adapterP.notifyDataSetChanged()
             })
         }
+
+        return view
     }
+
 
 
 

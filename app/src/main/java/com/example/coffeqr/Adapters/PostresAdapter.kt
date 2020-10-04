@@ -13,8 +13,7 @@ import kotlinx.android.synthetic.main.item_coffe.view.*
 import kotlinx.android.synthetic.main.item_coffe.view.imageView
 import kotlinx.android.synthetic.main.item_desserts.view.*
 
-class PostresAdapter(private val context: Context) :
-    RecyclerView.Adapter<PostresAdapter.PostresViewHolder>() {
+class PostresAdapter(private val context: Context) : RecyclerView.Adapter<PostresAdapter.PostresViewHolder>() {
 
     //lista vacia tipo mutablelist para setear la informacion
     private var ListPostres = mutableListOf<ListDataPostres>()
@@ -26,22 +25,24 @@ class PostresAdapter(private val context: Context) :
     }
 
     override fun onBindViewHolder(holder: PostresViewHolder, position: Int) {
-        val Postres = ListPostres[position]
-        holder.ListViewPostres(Postres)
+        val postres = ListPostres[position]
+        holder.ListViewPostres(postres)
     }
 
-    override fun getItemCount(): Int =  if (ListPostres.size > 0){
+    override fun getItemCount(): Int {
+       return if (ListPostres.size > 0){
             ListPostres.size
         }else{
             0
         }
+    }
 
 
     inner class PostresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun ListViewPostres(postres: ListDataPostres) {
             Glide.with(context).load(postres.imageUrl).into(itemView.imageViewP)
             itemView.nombrePostre.text = postres.nombre
-            itemView.precioCafe.text = postres.precio
+            itemView.precioPostre.text = postres.precio
         }
     }
 

@@ -17,8 +17,7 @@ class TabMenu : AppCompatActivity() {
 
     private fun setUpTabs(){
 
-        toolbar.title = getString(R.string.title_appbar_layout)
-        setSupportActionBar(toolbar)
+
         val adapter = ViewPageAdapter(supportFragmentManager)
 
         adapter.addFragment(Coffe_Fragment(), "Cafes")

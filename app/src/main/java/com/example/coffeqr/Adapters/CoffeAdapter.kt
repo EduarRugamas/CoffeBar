@@ -10,10 +10,11 @@ import com.example.coffeqr.Class.ListDataCoffe
 import com.example.coffeqr.R
 import kotlinx.android.synthetic.main.item_coffe.view.*
 
-class CoffeAdapter(private val context:Context) : RecyclerView.Adapter<CoffeAdapter.CoffeViewHolder>() {
+class CoffeAdapter(private val context:Context ) : RecyclerView.Adapter<CoffeAdapter.CoffeViewHolder>() {
 
         //lista vacia tipo mutablelist para setear la informacion
     private var ListCoffe = mutableListOf<ListDataCoffe>()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoffeViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_coffe,parent,false)
@@ -40,6 +41,8 @@ class CoffeAdapter(private val context:Context) : RecyclerView.Adapter<CoffeAdap
                 itemView.precioCafe.text = coffe.precio
             }
     }
+
+
 
         //metodo donde seteamos la data a la mutablelist vacia
      fun setListData(data: MutableList<ListDataCoffe>){
