@@ -16,7 +16,7 @@
         android:orientation="horizontal"
         android:background="@color/tabmenu">
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewCoffe"
             android:background="@color/white"
             android:layout_width="90dp"
             android:layout_height="100dp"
@@ -39,6 +39,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="19sp"
+
                 tools:text="@string/itemCafe" />
 
             <TextView
@@ -49,6 +50,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="18sp"
+                android:text="@string/itemprecio"
                 tools:text="@string/itemprecio" />
 
         </LinearLayout>

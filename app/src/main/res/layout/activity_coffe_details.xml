@@ -8,13 +8,14 @@
     tools:context=".Screens.CoffeActivityDetails">
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
         android:id="@+id/imageDetails"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        tools:src="@mipmap/ic_launcher"
+        />
     <TextView
         android:id="@+id/nameDetails"
         android:layout_width="match_parent"

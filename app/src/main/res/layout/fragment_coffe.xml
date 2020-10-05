@@ -15,12 +15,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                        <include layout="@layout/item_coffe_load"/>
-                        <include layout="@layout/item_coffe_load"/>
-                        <include layout="@layout/item_coffe_load"/>
-                        <include layout="@layout/item_coffe_load"/>
-                        <include layout="@layout/item_coffe_load"/>
-                        <include layout="@layout/item_coffe_load"/>
+                        <include layout="@layout/item_load"/>
+                        <include layout="@layout/item_load"/>
+                        <include layout="@layout/item_load"/>
+                        <include layout="@layout/item_load"/>
+                        <include layout="@layout/item_load"/>
+                        <include layout="@layout/item_load"/>
 
                 </LinearLayout>
 

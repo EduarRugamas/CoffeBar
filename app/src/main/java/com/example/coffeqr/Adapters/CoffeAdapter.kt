@@ -6,48 +6,42 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.coffeqr.Class.ListDataCoffe
+import com.example.coffeqr.Class.DataListCoffe
 import com.example.coffeqr.R
 import kotlinx.android.synthetic.main.item_coffe.view.*
 
-class CoffeAdapter(private val context:Context ) : RecyclerView.Adapter<CoffeAdapter.CoffeViewHolder>() {
+class CoffeAdapter constructor(
+    private val listaCaffes: List<DataListCoffe>,
+    private val coffeClick: onClickItemCoffe,
 
-        //lista vacia tipo mutablelist para setear la informacion
-    private var ListCoffe = mutableListOf<ListDataCoffe>()
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoffeViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_coffe,parent,false)
-        return CoffeViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_coffe,parent,false)
+
+        return CaffeViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CoffeViewHolder, position: Int) {
-        val coffe = ListCoffe[position]
-        holder.ListViewCoffe(coffe)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        (holder as CaffeViewHolder).bind(listaCaffes[position])
     }
 
-    override fun getItemCount(): Int {
-        return if (ListCoffe.size > 0){
-            ListCoffe.size
-        }else {
-            0
+    override fun getItemCount(): Int = listaCaffes.size
+
+    inner class CaffeViewHolder constructor(itemView : View) : RecyclerView.ViewHolder(itemView){
+        fun bind(cafes: DataListCoffe){
+            itemView.nombreCafe.text = cafes.nombre
+            itemView.precioCafe.text = cafes.precio.toString()
+            Glide.with(itemView.context).load(cafes.imagen).into(itemView.imageViewCoffe)
+            itemView.setOnClickListener {
+                coffeClick.onClick(cafes)
+            }
         }
     }
 
-    inner class CoffeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-            fun ListViewCoffe (coffe: ListDataCoffe){
-                Glide.with(context).load(coffe.imageUrl).into(itemView.imageView)
-                itemView.nombreCafe.text = coffe.nombre
-                itemView.precioCafe.text = coffe.precio
-            }
+    interface onClickItemCoffe{
+        fun onClick(Cafes : DataListCoffe)
     }
-
-
-
-        //metodo donde seteamos la data a la mutablelist vacia
-     fun setListData(data: MutableList<ListDataCoffe>){
-        ListCoffe = data
-    }
-
 
 }
