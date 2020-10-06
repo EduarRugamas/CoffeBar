@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".Screens.CoffeActivityDetails"></activity>
+        <activity android:name=".Screens.ItemPostresDetails"></activity>
+        <activity android:name=".Screens.ItemCoffeDetails" />
         <activity
             android:name=".Splash.SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">

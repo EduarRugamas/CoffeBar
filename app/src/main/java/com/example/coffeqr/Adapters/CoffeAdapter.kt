@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.item_coffe.view.*
 class CoffeAdapter constructor(
     private val listaCaffes: List<DataListCoffe>,
     private val coffeClick: onClickItemCoffe,
-
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 

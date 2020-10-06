@@ -8,23 +8,19 @@
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp"
     app:cardElevation="12dp"
-    app:cardCornerRadius="6dp"
-    >
+    app:cardCornerRadius="6dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/fondo"
-
-        >
+        android:background="@color/fondo">
         <ImageView
             android:id="@+id/imageViewP"
             android:background="@color/white"
             android:layout_width="90dp"
             android:layout_height="100dp"
             tools:src="@drawable/logo_cafesito"
-            tools:ignore="ContentDescription"
-            />
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
             android:layout_width="140dp"

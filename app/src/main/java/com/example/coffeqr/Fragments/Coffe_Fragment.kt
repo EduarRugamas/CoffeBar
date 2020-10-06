@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffeqr.Adapters.CoffeAdapter
 import com.example.coffeqr.Class.DataListCoffe
 import com.example.coffeqr.R
-import com.example.coffeqr.Screens.CoffeActivityDetails
-import com.example.coffeqr.Screens.CoffeActivityDetails.Companion.COFFE_KEY
+import com.example.coffeqr.Screens.ItemCoffeDetails
+import com.example.coffeqr.Screens.ItemCoffeDetails.Companion.COFFE_KEY
 import kotlinx.android.synthetic.main.fragment_coffe.rcCoffes
 import kotlinx.android.synthetic.main.fragment_coffe.view.*
 
 
-@Suppress("DEPRECATION")
+
 
 
 class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
@@ -49,12 +49,8 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
             view.rcCoffes!!.adapter = CoffeAdapter(getDataCoffe(), this@Coffe_Fragment )
         }
 
-
         return view
     }
-
-
-
 
     private fun getDataCoffe(): List<DataListCoffe> {
         return listOf(
@@ -69,7 +65,7 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
     }
 
     override fun onClick(Cafes: DataListCoffe) {
-        val intent = Intent(requireActivity(), CoffeActivityDetails::class.java)
+        val intent = Intent(requireActivity(), ItemCoffeDetails::class.java)
         intent.putExtra(COFFE_KEY, Cafes)
         startActivity(intent)
     }
