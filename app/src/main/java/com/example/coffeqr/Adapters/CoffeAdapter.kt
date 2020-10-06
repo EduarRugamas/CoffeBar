@@ -1,5 +1,6 @@
 package com.example.coffeqr.Adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -29,9 +30,10 @@ class CoffeAdapter constructor(
     override fun getItemCount(): Int = listaCaffes.size
 
     inner class CaffeViewHolder constructor(itemView : View) : RecyclerView.ViewHolder(itemView){
+        @SuppressLint("SetTextI18n")
         fun bind(cafes: DataListCoffe){
             itemView.nombreCafe.text = cafes.nombre
-            itemView.precioCafe.text = cafes.precio.toString()
+            itemView.precioCafe.text = "$"+cafes.precio.toString()
             Glide.with(itemView.context).load(cafes.imagen).into(itemView.imageViewCoffe)
             itemView.setOnClickListener {
                 coffeClick.onClick(cafes)

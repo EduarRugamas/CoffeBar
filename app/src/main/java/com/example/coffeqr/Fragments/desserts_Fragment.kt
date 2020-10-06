@@ -2,6 +2,7 @@ package com.example.coffeqr.Fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,16 +26,28 @@ class desserts_Fragment : Fragment(), PostresAdapter.onClickItemPostres {
     private val postre4 = DataListPostres("Panna Cotta",2.00,"https://i.ibb.co/9qW4f9Z/pannakota.png")
     private val postre5 = DataListPostres("Galletas",1.00,"https://i.ibb.co/mtTn1KX/galletas.png")
     private val postre6 = DataListPostres("Basbousa",1.50,"https://i.ibb.co/ChN4GrR/bashousa.png")
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view : View =  inflater.inflate(R.layout.fragment_desserts, container, false)
 
-            rcDesserts.apply {
-                view.rcDesserts.layoutManager = LinearLayoutManager(activity)
-                view.rcDesserts.adapter = PostresAdapter(getDataPostres(), this@desserts_Fragment)
-            }
+            Handler().postDelayed({
+                shimmer_container.startShimmer()
+                shimmer_container.visibility = view.visibility
+                shimmer_container.stopShimmer()
+                shimmer_container.visibility = View.GONE
+
+                rcDesserts.apply {
+                    view.rcDesserts.layoutManager = LinearLayoutManager(activity)
+                    view.rcDesserts.adapter = PostresAdapter(getDataPostres(), this@desserts_Fragment)
+                }
+
+            },5000)
+
+
 
 
         return view

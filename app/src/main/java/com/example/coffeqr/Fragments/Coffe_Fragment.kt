@@ -5,6 +5,7 @@ package com.example.coffeqr.Fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ import com.example.coffeqr.Class.DataListCoffe
 import com.example.coffeqr.R
 import com.example.coffeqr.Screens.ItemCoffeDetails
 import com.example.coffeqr.Screens.ItemCoffeDetails.Companion.COFFE_KEY
-import kotlinx.android.synthetic.main.fragment_coffe.rcCoffes
+import kotlinx.android.synthetic.main.fragment_coffe.*
 import kotlinx.android.synthetic.main.fragment_coffe.view.*
 
 
@@ -44,10 +45,20 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_coffe, container, false)
 
-        rcCoffes.apply {
-            view.rcCoffes!!.layoutManager = LinearLayoutManager(activity)
-            view.rcCoffes!!.adapter = CoffeAdapter(getDataCoffe(), this@Coffe_Fragment )
-        }
+        Handler().postDelayed({
+            shimmer_container.startShimmer()
+            shimmer_container.visibility = view.visibility
+            shimmer_container.stopShimmer()
+            shimmer_container.visibility = View.GONE
+
+            rcCoffes.apply {
+                view.rcCoffes!!.layoutManager = LinearLayoutManager(activity)
+                view.rcCoffes!!.adapter = CoffeAdapter(getDataCoffe(), this@Coffe_Fragment )
+            }
+        },2000)
+
+
+
 
         return view
     }

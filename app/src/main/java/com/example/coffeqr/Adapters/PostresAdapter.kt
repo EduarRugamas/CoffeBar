@@ -1,5 +1,6 @@
 package com.example.coffeqr.Adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,9 +30,10 @@ constructor(
     override fun getItemCount(): Int = ListPostres.size
 
     inner class PostresViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(postres: DataListPostres) {
             itemView.nombrePostre.text = postres.nombre
-            itemView.precioPostre.text = postres.precio.toString()
+            itemView.precioPostre.text = "$"+postres.precio.toString()
             Glide.with(itemView.context).load(postres.imagen).into(itemView.imageViewP)
             itemView.setOnClickListener {
                 postreClick.OnClickListener(postres)

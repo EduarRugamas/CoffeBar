@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_coffe_details.*
 class ItemPostresDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_item_postres_details)
+        setContentView(R.layout.activity_postres_details)
 
         parseReceivedPostres()?.let {
             loadPostresData(it)
