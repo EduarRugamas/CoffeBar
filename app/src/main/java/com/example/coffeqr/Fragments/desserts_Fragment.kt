@@ -39,16 +39,11 @@ class desserts_Fragment : Fragment(), PostresAdapter.onClickItemPostres {
                 shimmer_container.visibility = view.visibility
                 shimmer_container.stopShimmer()
                 shimmer_container.visibility = View.GONE
-
                 rcDesserts.apply {
                     view.rcDesserts.layoutManager = LinearLayoutManager(activity)
                     view.rcDesserts.adapter = PostresAdapter(getDataPostres(), this@desserts_Fragment)
                 }
-
             },5000)
-
-
-
 
         return view
     }
@@ -69,6 +64,8 @@ class desserts_Fragment : Fragment(), PostresAdapter.onClickItemPostres {
         intent.putExtra(POSTRE_KEY, Postres)
         startActivity(intent)
     }
+
+
 
 
 }

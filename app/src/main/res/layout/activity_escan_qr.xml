@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,55 +8,68 @@
     tools:context=".Screens.ActivityEscanQR">
 
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/nave"
+        android:layout_marginTop="56dp"
+        android:text="@string/escan_qr"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <SurfaceView
+        android:id="@+id/escaneo_qr"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.29" />
 
+    <TextView
+        android:id="@+id/QR_result"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        tools:text="codigo qr de mesa"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/escaneo_qr" />
 
-
-    <LinearLayout
-        android:id="@+id/deco_inferior"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_navegacion"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="460dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="250dp">
+        android:layout_marginBottom="192dp"
+        android:background="@drawable/desing_button"
+        android:text="@string/abrir_menu"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <Button
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/desing_button"
-                android:text="@string/abrir_menu"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.034" />
-
-            <ImageView
-                android:id="@+id/decoration_inferioir_splash"
-                android:layout_width="800dp"
-                android:layout_height="400dp"
-                android:src="@drawable/decoracion_inferior"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="ContentDescription" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/decoration_inferioir_splash"
+        android:layout_width="800dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/decoracion_inferior"
+        app:layout_constraintTop_toTopOf="@+id/btn_navegacion"
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:layout_editor_absoluteX="-310dp" />
 
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

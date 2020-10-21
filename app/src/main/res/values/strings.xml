@@ -2,13 +2,13 @@
     <string name="app_name">CoffeQR</string>
     <string name="menu_qr">Coffe Bar QR</string>
 
-    <string name="title_coffe">Listado de Cafes</string>
-    <string name="title_desserts">Listado de Postres</string>
     <string name="title_appbar_layout">Caffe Bar</string>
     <string name="abrir_menu">Abrir Menu</string>
     <string name="nave">nave</string>
     <string name="itemCafe">Cafe americano</string>
     <string name="itemprecio">$</string>
     <string name="number">1</string>
+    <string name="add_to_cart">Add %1$d</string>
+    <string name="escan_qr">Escanea tu codigo QR aqui</string>
 
 </resources>

@@ -48,10 +48,15 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
-    //library viewModel
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
 
     //library of efect shimmert of android
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //library dexter of permission run time
+    implementation 'com.karumi:dexter:6.2.1'
+
+    //implementacion de camera source google play
+    implementation 'com.google.android.gms:play-services-vision:20.1.2'
 
 }

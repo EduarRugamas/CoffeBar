@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Screens.ItemPostresDetails">
 
     <ImageView
-        android:id="@+id/imageDetails"
+        android:id="@+id/imageDetailsPostre"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="15dp"
@@ -17,21 +17,94 @@
         tools:src="@mipmap/ic_launcher"
         />
     <TextView
-        android:id="@+id/nameDetails"
+        android:id="@+id/nameDetailsPostre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="30sp"
+        android:textColor="@color/black"
         tools:text="@string/itemCafe"/>
     <TextView
-        android:id="@+id/precioDetails"
+        android:id="@+id/precioDetailsPostre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         tools:text="@string/itemprecio"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        >
+
+
+        <ImageButton
+            android:id="@+id/btn_menos_postre"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="28dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/btn_menos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cantidad_producto_postre"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/cantidad_producto_postre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tabmenu"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="3" />
+
+        <ImageButton
+            android:id="@+id/btn_mas_postre"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="28dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/btn_mas"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/cantidad_producto_postre"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/agregarItem"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+        android:background="@drawable/desing_button"
+        tools:text="agregar 5 postres"
+        />
+    <Button
+        android:id="@+id/mostrarItem"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+        android:background="@drawable/desing_button"
+        android:text="Mostrar postres"
         />
 
 

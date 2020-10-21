@@ -17,7 +17,6 @@ class TabMenu : AppCompatActivity() {
 
     private fun setUpTabs(){
 
-
         val adapter = ViewPageAdapter(supportFragmentManager)
 
         adapter.addFragment(Coffe_Fragment(), "Cafes")

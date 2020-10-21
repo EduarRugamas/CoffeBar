@@ -25,6 +25,8 @@ import kotlinx.android.synthetic.main.fragment_coffe.view.*
 
 class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
 
+
+
     private val cafe1 =
         DataListCoffe("Cafe Americano", 1.00, "https://i.ibb.co/9Gr9kFF/americano.png")
     private val cafe2 =
@@ -63,6 +65,8 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
         return view
     }
 
+
+
     private fun getDataCoffe(): List<DataListCoffe> {
         return listOf(
             cafe1,
@@ -75,10 +79,18 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
         )
     }
 
+    
+
     override fun onClick(Cafes: DataListCoffe) {
         val intent = Intent(requireActivity(), ItemCoffeDetails::class.java)
         intent.putExtra(COFFE_KEY, Cafes)
         startActivity(intent)
+    }
+
+
+
+    companion object {
+        const val COFFE_ITEM_KEY = "coffe.item.key"
     }
 
 
