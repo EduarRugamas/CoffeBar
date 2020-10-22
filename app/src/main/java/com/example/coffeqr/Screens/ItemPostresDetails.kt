@@ -19,14 +19,14 @@ class ItemPostresDetails : AppCompatActivity() {
     private var cantidaProductoPostre = 0
     private var nombreDePostre = ""
     private var image = ""
-    private lateinit var prefs: SharedPreferences
+   private var precio = ""
     private val dbP = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_postres_details)
 
-        prefs = getSharedPreferences("PREFSPOSTRE", Context.MODE_PRIVATE)
+
 
 
         parseReceivedPostres()?.let {
@@ -67,7 +67,7 @@ class ItemPostresDetails : AppCompatActivity() {
     }
     private fun MostrarBotonProductos() {
         agregarItem.visibility = if (cantidaProductoPostre == 0) View.GONE else View.VISIBLE
-        agregarItem.text = getString(R.string.add_to_cart, cantidaProductoPostre)
+        agregarItem.text = getString(R.string.mostrar_Dolar, cantidaProductoPostre)
     }
 
     private fun loadPostresData(it: DataListPostres) {
@@ -76,6 +76,7 @@ class ItemPostresDetails : AppCompatActivity() {
         Glide.with(this).load(it.imagen).into(imageDetailsPostre)
 
         image = it.imagen
+        precio = it.getDisplayPrice()
 
     }
 
@@ -87,7 +88,8 @@ class ItemPostresDetails : AppCompatActivity() {
            "Mesa" to "mesa 1",
            "Nombre" to nombreDePostre,
            "Cantidad" to cantidaProductoPostre,
-           "Imagen" to image
+           "Imagen" to image,
+           "Precio" to precio
        )
 
        dbP.collection("Pedidos")

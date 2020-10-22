@@ -8,7 +8,9 @@
     <string name="itemCafe">Cafe americano</string>
     <string name="itemprecio">$</string>
     <string name="number">1</string>
-    <string name="add_to_cart">Add %1$d</string>
+    <string name="mostrar_Dolar">añadir %1$d</string>
     <string name="escan_qr">Escanea tu codigo QR aqui</string>
+    <string name="detalles_de_pedido">Detalles de pedido</string>
+    <string name="cantidad">Cantidad</string>
 
 </resources>

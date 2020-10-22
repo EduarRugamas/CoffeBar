@@ -4,7 +4,7 @@
     package="com.example.coffeqr">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".Screens.DetalleOrdenCoffe"/>
+        <activity android:name=".Screens.OrdenPedidos"></activity>
+        <activity android:name=".Screens.DetalleOrdenCoffe" />
         <activity android:name=".Screens.ItemPostresDetails" />
         <activity
             android:name=".Screens.ItemCoffeDetails"

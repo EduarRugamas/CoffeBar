@@ -16,6 +16,7 @@ import com.example.coffeqr.Class.DataListCoffe
 import com.example.coffeqr.R
 import com.example.coffeqr.Screens.ItemCoffeDetails
 import com.example.coffeqr.Screens.ItemCoffeDetails.Companion.COFFE_KEY
+import com.example.coffeqr.Screens.OrdenPedidos
 import kotlinx.android.synthetic.main.fragment_coffe.*
 import kotlinx.android.synthetic.main.fragment_coffe.view.*
 
@@ -59,6 +60,11 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
             }
         },2000)
 
+        view.btn_pedidos.setOnClickListener {
+            val intent = Intent(requireActivity(), OrdenPedidos::class.java)
+            startActivity(intent)
+        }
+
 
 
 
@@ -89,9 +95,7 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
 
 
 
-    companion object {
-        const val COFFE_ITEM_KEY = "coffe.item.key"
-    }
+
 
 
 }

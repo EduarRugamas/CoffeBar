@@ -13,6 +13,7 @@ import com.example.coffeqr.Utils.toast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_coffe_details.*
 import kotlinx.android.synthetic.main.activity_postres_details.*
+import kotlin.math.roundToInt
 
 
 class ItemCoffeDetails : AppCompatActivity() {
@@ -20,6 +21,7 @@ class ItemCoffeDetails : AppCompatActivity() {
     private var cantidaProductoCafes = 0
     private var nombreDeCafe = ""
     private var Imagen = ""
+    private var precio = ""
     private var db = FirebaseFirestore.getInstance()
 
 
@@ -52,6 +54,7 @@ class ItemCoffeDetails : AppCompatActivity() {
         precioDetails_cafes?.text = it.getDisplayPrice()
         Glide.with(this).load(it.imagen).into(imageDetails_cafes)
         Imagen = it.imagen
+        precio = it.getDisplayPrice()
 
     }
     private fun addCoffeProduct() {
@@ -70,7 +73,7 @@ class ItemCoffeDetails : AppCompatActivity() {
 
     private fun MostrarBotonProductos() {
         addButton_cafes.visibility = if (cantidaProductoCafes == 0) View.GONE else View.VISIBLE
-        addButton_cafes.text = getString(R.string.add_to_cart, cantidaProductoCafes)
+        addButton_cafes.text = getString(R.string.mostrar_Dolar, cantidaProductoCafes)
     }
 
     private fun SaveDataCofesDB(){
@@ -79,6 +82,7 @@ class ItemCoffeDetails : AppCompatActivity() {
             "Mesa" to "mesa 1" ,
             "Nombre" to nombreDeCafe ,
             "Cantidad" to cantidaProductoCafes,
+            "Precio" to precio,
             "Imagen" to Imagen
         )
 
@@ -91,6 +95,7 @@ class ItemCoffeDetails : AppCompatActivity() {
             .addOnFailureListener { fallo ->
                 toast("No se pudo añadir el pedido")
             }
+        finish()
     }
 
 

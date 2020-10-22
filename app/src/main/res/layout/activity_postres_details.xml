@@ -96,16 +96,7 @@
         android:background="@drawable/desing_button"
         tools:text="agregar 5 postres"
         />
-    <Button
-        android:id="@+id/mostrarItem"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/white"
-        android:background="@drawable/desing_button"
-        android:text="Mostrar postres"
-        />
+
 
 
 </LinearLayout>
