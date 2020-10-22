@@ -9,6 +9,8 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.example.coffeqr.Class.DataListCoffe
 import com.example.coffeqr.R
+import com.example.coffeqr.Utils.toast
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_coffe_details.*
 import kotlinx.android.synthetic.main.activity_postres_details.*
 
@@ -17,14 +19,13 @@ class ItemCoffeDetails : AppCompatActivity() {
 
     private var cantidaProductoCafes = 0
     private var nombreDeCafe = ""
-    private lateinit var prefCafe: SharedPreferences
+    private var Imagen = ""
+    private var db = FirebaseFirestore.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coffe_details)
-
-        prefCafe = getSharedPreferences("PREFSCAFE", Context.MODE_PRIVATE)
 
         parseReceivedCoffe()?.let {
             loadCoffeData(it)
@@ -42,16 +43,15 @@ class ItemCoffeDetails : AppCompatActivity() {
             reduceCoffeProduct()
         }
         addButton_cafes.setOnClickListener {
-            guardarDatosOrden()
+            SaveDataCofesDB()
         }
-        mostrarItemCafes.setOnClickListener {
-            mostrarData()
-        }
+
     }
     private fun loadCoffeData(it: DataListCoffe) {
         nameDetails_cafes?.text = it.nombre
         precioDetails_cafes?.text = it.getDisplayPrice()
         Glide.with(this).load(it.imagen).into(imageDetails_cafes)
+        Imagen = it.imagen
 
     }
     private fun addCoffeProduct() {
@@ -72,22 +72,25 @@ class ItemCoffeDetails : AppCompatActivity() {
         addButton_cafes.visibility = if (cantidaProductoCafes == 0) View.GONE else View.VISIBLE
         addButton_cafes.text = getString(R.string.add_to_cart, cantidaProductoCafes)
     }
-    private fun guardarDatosOrden(){
-        val editor: SharedPreferences.Editor = prefCafe.edit()
+
+    private fun SaveDataCofesDB(){
         nombreDeCafe = nameDetails_cafes.text.toString()
-        editor.putString(KEY_CAFES, nombreDeCafe)
-        editor.putInt(KEY_INT_CAFES, cantidaProductoCafes)
-        editor.apply()
-        Log.d("nombre guardada", nombreDeCafe)
-        Log.d("cantida ", cantidaProductoCafes.toString())
-    }
-    private fun mostrarData(){
-        val myPrefs = prefCafe.getString(KEY_CAFES,"")
-        val prefs2 = prefCafe.getInt(KEY_INT_CAFES,0)
+        val dataCafes = hashMapOf(
+            "Mesa" to "mesa 1" ,
+            "Nombre" to nombreDeCafe ,
+            "Cantidad" to cantidaProductoCafes,
+            "Imagen" to Imagen
+        )
 
-        Log.d("nombre data G", myPrefs.toString())
-        Log.d("cantidad data G", prefs2.toString())
+        db.collection("Pedidos")
+            .add(dataCafes)
+            .addOnCompleteListener { result ->
+                if (result.isSuccessful ) toast("Pedido añadido correctamente..!!")
 
+            }
+            .addOnFailureListener { fallo ->
+                toast("No se pudo añadir el pedido")
+            }
     }
 
 

@@ -9,6 +9,8 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.example.coffeqr.Class.DataListPostres
 import com.example.coffeqr.R
+import com.example.coffeqr.Utils.toast
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_postres_details.*
 
 
@@ -16,7 +18,9 @@ class ItemPostresDetails : AppCompatActivity() {
 
     private var cantidaProductoPostre = 0
     private var nombreDePostre = ""
+    private var image = ""
     private lateinit var prefs: SharedPreferences
+    private val dbP = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,12 +46,10 @@ class ItemPostresDetails : AppCompatActivity() {
         }
 
         agregarItem.setOnClickListener {
-            guardarDatosOrden()
+            SavesetDataBD()
         }
 
-        mostrarItem.setOnClickListener {
-            mostrarData()
-        }
+
 
     }
 
@@ -73,28 +75,32 @@ class ItemPostresDetails : AppCompatActivity() {
         precioDetailsPostre?.text = it.getDisplayPrice()
         Glide.with(this).load(it.imagen).into(imageDetailsPostre)
 
-    }
-
-
-    private fun guardarDatosOrden(){
-        val editor: SharedPreferences.Editor = prefs.edit()
-        nombreDePostre = nameDetailsPostre.text.toString()
-        editor.putString(KEY_POSTRES, nombreDePostre)
-        editor.putInt(KEY_INT_POSTRES, cantidaProductoPostre)
-        editor.apply()
-        Log.d("nombre postre guardada", nombreDePostre)
-        Log.d("cantida postre", cantidaProductoPostre.toString())
-    }
-
-
-    private fun mostrarData(){
-        val myPrefs = prefs.getString(KEY_POSTRES,"")
-        val prefs2 = prefs.getInt(KEY_INT_POSTRES,0)
-
-        Log.d("nombre data G", myPrefs.toString())
-        Log.d("cantidad data G", prefs2.toString())
+        image = it.imagen
 
     }
+
+
+    //envia los datos a la base de datos en firebase
+   private fun SavesetDataBD(){
+       nombreDePostre = nameDetailsPostre.text.toString()
+       val dataPostres = hashMapOf(
+           "Mesa" to "mesa 1",
+           "Nombre" to nombreDePostre,
+           "Cantidad" to cantidaProductoPostre,
+           "Imagen" to image
+       )
+
+       dbP.collection("Pedidos")
+           .add(dataPostres)
+           .addOnCompleteListener { result ->
+               if (result.isSuccessful) toast("pedido añadido correctamente!!..")
+           }.addOnFailureListener { fallo ->
+               toast("Fallo al añadir el pedido!!...")
+               Log.e("Error DB", fallo.toString())
+           }
+
+        finish()
+   }
 
 
 
