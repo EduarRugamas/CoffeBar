@@ -12,5 +12,7 @@
     <string name="escan_qr">Escanea tu codigo QR aqui</string>
     <string name="detalles_de_pedido">Detalles de pedido</string>
     <string name="cantidad">Cantidad</string>
+    <string name="no">No</string>
+    <string name="si">Si</string>
 
 </resources>

@@ -78,6 +78,7 @@ class ItemCoffeDetails : AppCompatActivity() {
 
     private fun SaveDataCofesDB(){
         nombreDeCafe = nameDetails_cafes.text.toString()
+
         val dataCafes = hashMapOf(
             "Mesa" to "mesa 1" ,
             "Nombre" to nombreDeCafe ,

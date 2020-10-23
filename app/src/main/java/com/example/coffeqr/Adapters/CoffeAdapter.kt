@@ -41,7 +41,7 @@ class CoffeAdapter constructor(
         }
     }
 
-    interface onClickItemCoffe{
+    interface onClickItemCoffe {
         fun onClick(Cafes : DataListCoffe)
     }
 

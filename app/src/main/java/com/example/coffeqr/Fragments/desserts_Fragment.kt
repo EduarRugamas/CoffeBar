@@ -13,6 +13,7 @@ import com.example.coffeqr.Class.DataListPostres
 import com.example.coffeqr.R
 import com.example.coffeqr.Screens.ItemPostresDetails
 import com.example.coffeqr.Screens.ItemPostresDetails.Companion.POSTRE_KEY
+import com.example.coffeqr.Screens.OrdenPedidos
 import kotlinx.android.synthetic.main.fragment_desserts.*
 import kotlinx.android.synthetic.main.fragment_desserts.view.*
 
@@ -39,11 +40,20 @@ class desserts_Fragment : Fragment(), PostresAdapter.onClickItemPostres {
                 shimmer_container.visibility = view.visibility
                 shimmer_container.stopShimmer()
                 shimmer_container.visibility = View.GONE
+
+                view.btn_pedidos.visibility = View.GONE
+                view.btn_pedidos.visibility = view.visibility
+
                 rcDesserts.apply {
                     view.rcDesserts.layoutManager = LinearLayoutManager(activity)
                     view.rcDesserts.adapter = PostresAdapter(getDataPostres(), this@desserts_Fragment)
                 }
             },5000)
+
+        view.btn_pedidos.setOnClickListener {
+            val intent = Intent(requireActivity(), OrdenPedidos::class.java)
+            startActivity(intent)
+        }
 
         return view
     }
