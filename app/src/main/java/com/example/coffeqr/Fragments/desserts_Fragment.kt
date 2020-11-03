@@ -9,25 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffeqr.Adapters.PostresAdapter
+import com.example.coffeqr.Class.DataListCoffe
 import com.example.coffeqr.Class.DataListPostres
 import com.example.coffeqr.R
-import com.example.coffeqr.Screens.ItemPostresDetails
-import com.example.coffeqr.Screens.ItemPostresDetails.Companion.POSTRE_KEY
 import com.example.coffeqr.Screens.OrdenPedidos
 import kotlinx.android.synthetic.main.fragment_desserts.*
 import kotlinx.android.synthetic.main.fragment_desserts.view.*
 
 
 
-class desserts_Fragment : Fragment(), PostresAdapter.onClickItemPostres {
+class desserts_Fragment : Fragment() {
 
-    private val postre1 = DataListPostres("Tiramisu",1.50, "https://i.ibb.co/dBWW9dC/tiramisu.png")
-    private val postre2 = DataListPostres("Blinis",1.00,"https://i.ibb.co/jTDwyjt/blinis.png")
-    private val postre3 = DataListPostres("Katen",2.00,"https://i.ibb.co/wWyBfyz/kante.png")
-    private val postre4 = DataListPostres("Panna Cotta",2.00,"https://i.ibb.co/9qW4f9Z/pannakota.png")
-    private val postre5 = DataListPostres("Galletas",1.00,"https://i.ibb.co/mtTn1KX/galletas.png")
-    private val postre6 = DataListPostres("Basbousa",1.50,"https://i.ibb.co/ChN4GrR/bashousa.png")
-
+    val postreLista = ArrayList<DataListPostres>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,12 +34,14 @@ class desserts_Fragment : Fragment(), PostresAdapter.onClickItemPostres {
                 shimmer_container.stopShimmer()
                 shimmer_container.visibility = View.GONE
 
-                view.btn_pedidos.visibility = View.GONE
-                view.btn_pedidos.visibility = view.visibility
+
 
                 rcDesserts.apply {
                     view.rcDesserts.layoutManager = LinearLayoutManager(activity)
-                    view.rcDesserts.adapter = PostresAdapter(getDataPostres(), this@desserts_Fragment)
+                    RdataLoadPostre()
+
+                    val PostresAdapter = PostresAdapter(postreLista)
+                    view.rcDesserts.adapter = PostresAdapter
                 }
             },5000)
 
@@ -57,23 +52,43 @@ class desserts_Fragment : Fragment(), PostresAdapter.onClickItemPostres {
 
         return view
     }
-    private fun getDataPostres(): List<DataListPostres> {
-        return listOf(
-            postre1,
-            postre2,
-            postre3,
-            postre4,
-            postre5,
-            postre6
 
+    private fun RdataLoadPostre(){
+
+        postreLista.add(
+            DataListPostres(
+                "Tiramisu", 1.50, "Esta es la descripcion de un tiramisu","https://i.ibb.co/dBWW9dC/tiramisu.png"
+            )
         )
+        postreLista.add(
+            DataListPostres(
+                "Blinis", 1.00, "Esta es la descripcion de un Blinis", "https://i.ibb.co/jTDwyjt/blinis.png"
+            )
+        )
+        postreLista.add(DataListPostres(
+            "Katen", 2.00, "Esta es la descripcion de un Katen","https://i.ibb.co/wWyBfyz/kante.png"
+        ))
+        postreLista.add(DataListPostres(
+            "Panna Cotta", 2.00, "Esta es la descripcion de Panna Cotta","https://i.ibb.co/9qW4f9Z/pannakota.png"
+        ))
+        postreLista.add(DataListPostres(
+            "Galletas", 1.00, "Esta es la descripcion de Galletas","https://i.ibb.co/mtTn1KX/galletas.png"
+        ))
+
+        postreLista.add(DataListPostres(
+            "Basbousa", 1.50, "Esta es la descripcion de un Basbousa","https://i.ibb.co/ChN4GrR/bashousa.png"
+        ))
+        postreLista.add(
+            DataListPostres(
+                "Blinis", 1.00, "Esta es la descripcion de un Blinis", "https://i.ibb.co/jTDwyjt/blinis.png"
+            )
+        )
+        postreLista.add(DataListPostres(
+            "Panna Cotta", 2.00, "Esta es la descripcion de Panna Cotta","https://i.ibb.co/9qW4f9Z/pannakota.png"
+        ))
+
     }
 
-    override fun OnClickListener(Postres: DataListPostres) {
-        val intent = Intent(requireActivity(), ItemPostresDetails::class.java)
-        intent.putExtra(POSTRE_KEY, Postres)
-        startActivity(intent)
-    }
 
 
 

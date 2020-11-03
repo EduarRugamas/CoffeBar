@@ -1,5 +1,7 @@
 package com.example.coffeqr.Screens
 
+
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -14,13 +16,13 @@ import com.example.coffeqr.Utils.toast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_orden_pedidos.*
 import kotlinx.android.synthetic.main.activity_orden_pedidos.shimmer_container
-import kotlinx.android.synthetic.main.fragment_coffe.*
 
+@Suppress("DEPRECATION")
 class OrdenPedidos : AppCompatActivity(), AdapterPedidos.onClicDeleteItem {
 
         private val listaPedidos: ArrayList<DataPedidos> = ArrayList()
         private  val AdapterP = AdapterPedidos(listaPedidos, this)
-        private  val dbPedidos = FirebaseFirestore.getInstance()
+        val dbPedidos = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,9 @@ class OrdenPedidos : AppCompatActivity(), AdapterPedidos.onClicDeleteItem {
         },5000)
 
 
+        btn_pagar.setOnClickListener {
+            startActivity(Intent(this, ActivityPagos::class.java))
+        }
 
     }
 
@@ -73,7 +78,7 @@ class OrdenPedidos : AppCompatActivity(), AdapterPedidos.onClicDeleteItem {
         AlertDialog.Builder(this)
             .setTitle("Eliminar de la lista de pedido")
             .setMessage("Desea eliminar este pedido")
-            .setNegativeButton(R.string.no) { _,_ -> finish() }
+            .setNegativeButton(R.string.cancel) { _, _ -> }
             .setPositiveButton(R.string.si){ _,_ -> eliminarItem(id) }
             .create()
             .show()
@@ -90,7 +95,7 @@ class OrdenPedidos : AppCompatActivity(), AdapterPedidos.onClicDeleteItem {
                 toast("No se pudo eliminar este Item")
             }
 
-        Log.d("id de parametro", idP)
+        //Log.d("id de parametro", idP)
 
         updateDataRecyclerView()
     }
@@ -111,7 +116,7 @@ class OrdenPedidos : AppCompatActivity(), AdapterPedidos.onClicDeleteItem {
                 if (imagen != null && mesa != null &&nombre != null &&cantidad != null && precio != null){
                     listaPedidos.add(DataPedidos(id,imagen,mesa,nombre,cantidad.toString(),precio))
                 }
-                Log.d("id de update", id)
+                //Log.d("id de update", id)
             }
             AdapterP.notifyDataSetChanged()
         }

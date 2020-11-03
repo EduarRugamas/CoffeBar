@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".Screens.OrdenPedidos"></activity>
+        <activity android:name=".Screens.ActivityPagos"></activity>
+        <activity android:name=".Screens.OrdenPedidos" />
         <activity android:name=".Screens.DetalleOrdenCoffe" />
         <activity android:name=".Screens.ItemPostresDetails" />
         <activity

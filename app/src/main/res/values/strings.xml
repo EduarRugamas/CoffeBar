@@ -12,7 +12,19 @@
     <string name="escan_qr">Escanea tu codigo QR aqui</string>
     <string name="detalles_de_pedido">Detalles de pedido</string>
     <string name="cantidad">Cantidad</string>
-    <string name="no">No</string>
+    <string name="cancel">Cancelar</string>
     <string name="si">Si</string>
+    <string name="agrega_orden">Agrega tu orden aqui</string>
+    <string name="enviar_orden">Enviar orden</string>
+    <string name="descripcion">Descripcion:</string>
+    <string name="zero">0</string>
+    <string name="total_a_pagar">Total a pagar</string>
+    <string name="pagar_en_efectivo">Pagar en efectivo</string>
+    <string name="pagar_tarjeta">Pagar con Tarjeta</string>
+    <string name="numero_tajeta">0000–0000-0000-0000</string>
+    <string name="nombre_de_tarjeta">Nombre</string>
+    <string name="fecha_tarjeta">Fecha</string>
+    <string name="cvv">CVV</string>
+    <string name="realizar_pago">Realizar pago</string>
 
 </resources>

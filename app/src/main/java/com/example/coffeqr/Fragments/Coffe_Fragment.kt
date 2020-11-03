@@ -14,31 +14,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffeqr.Adapters.CoffeAdapter
 import com.example.coffeqr.Class.DataListCoffe
 import com.example.coffeqr.R
-import com.example.coffeqr.Screens.ItemCoffeDetails
-import com.example.coffeqr.Screens.ItemCoffeDetails.Companion.COFFE_KEY
 import com.example.coffeqr.Screens.OrdenPedidos
 import kotlinx.android.synthetic.main.fragment_coffe.*
 import kotlinx.android.synthetic.main.fragment_coffe.view.*
 import kotlinx.android.synthetic.main.fragment_coffe.view.btn_pedidos
-import kotlinx.android.synthetic.main.fragment_desserts.view.*
 
 
-class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
+class Coffe_Fragment : Fragment(){
+
+    val cafesLista = ArrayList<DataListCoffe>()
 
 
-
-    private val cafe1 =
-        DataListCoffe("Cafe Americano", 1.00, "https://i.ibb.co/9Gr9kFF/americano.png")
-    private val cafe2 =
-        DataListCoffe("Cafe Cappuchino", 1.50, "https://i.ibb.co/ZVYNt6L/cappuccino.png")
-    private val cafe3 =
-        DataListCoffe("Chocolate", 2.00, "https://i.ibb.co/W69bzFw/chocolate.png")
-    private val cafe4 =
-        DataListCoffe("Cocoa", 1.50, "https://i.ibb.co/DzhxzBD/cocoa.png")
-    private val cafe5 =
-        DataListCoffe("Cafe Espresso", 3.50, "https://i.ibb.co/grBMp4f/espresso.png")
-    private val cafe6 =
-        DataListCoffe("Cafe Fraoe", 2.00, "https://i.ibb.co/SdHV8S9/frape.png")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,12 +38,16 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
             shimmer_container.visibility = view.visibility
             shimmer_container.stopShimmer()
             shimmer_container.visibility = View.GONE
-            view.btn_pedidos.visibility = View.GONE
-            view.btn_pedidos.visibility = view.visibility
+
 
             rcCoffes.apply {
                 view.rcCoffes!!.layoutManager = LinearLayoutManager(activity)
-                view.rcCoffes!!.adapter = CoffeAdapter(getDataCoffe(), this@Coffe_Fragment )
+
+                RdataLoad()
+
+                val CoffeAdapter = CoffeAdapter(cafesLista)
+                view.rcCoffes!!.adapter = CoffeAdapter
+                view.rcCoffes!!.setHasFixedSize(true)
             }
         },2000)
 
@@ -69,30 +59,35 @@ class Coffe_Fragment : Fragment(), CoffeAdapter.onClickItemCoffe {
         return view
     }
 
+    private fun RdataLoad(){
 
-
-    private fun getDataCoffe(): List<DataListCoffe> {
-        return listOf(
-            cafe1,
-            cafe2,
-            cafe3,
-            cafe4,
-            cafe5,
-            cafe6
-
+        cafesLista.add(
+            DataListCoffe(
+            "Cafe Americano", 1.00, "Esta es la descripcion de un cafe americano","https://i.ibb.co/9Gr9kFF/americano.png"
         )
+        )
+        cafesLista.add(
+            DataListCoffe(
+            "Cafe Cappuchino", 1.50, "Esta es la descripcion de un cafe cappuchino", "https://i.ibb.co/ZVYNt6L/cappuccino.png"
+        )
+        )
+        cafesLista.add(DataListCoffe(
+            "Chocolate", 2.00, "Esta es la descripcion de un chocolate","https://i.ibb.co/W69bzFw/chocolate.png"
+        ))
+        cafesLista.add(DataListCoffe(
+            "Cocoa", 1.50, "Esta es la descripcion de cocoa","https://i.ibb.co/DzhxzBD/cocoa.png"
+        ))
+        cafesLista.add(DataListCoffe(
+            "Cafe Espresso", 3.50, "Esta es la descripcion de un cafe Expresso","https://i.ibb.co/grBMp4f/espresso.png"
+        ))
+
+        cafesLista.add(DataListCoffe(
+            "Cafe Fraoe", 2.00, "Esta es la descripcion de un cafe frappe","https://i.ibb.co/SdHV8S9/frape.png"
+        ))
+        cafesLista.add(DataListCoffe(
+            "Cafe Americano", 1.00, "Esta es la descripcion de un cafe americano","https://i.ibb.co/9Gr9kFF/americano.png"
+        ))
     }
-
-    
-
-    override fun onClick(Cafes: DataListCoffe) {
-        val intent = Intent(requireActivity(), ItemCoffeDetails::class.java)
-        intent.putExtra(COFFE_KEY, Cafes)
-        startActivity(intent)
-    }
-
-
-
 
 
 

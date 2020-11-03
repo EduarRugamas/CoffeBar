@@ -13,4 +13,7 @@
     <color name="fnd2">#77C4CD</color>
     <color name="fnd3">#4DBAC7</color>
     <color name="place_holder">#dddddd</color>
+    <color name="darkGray">#a9a9a9</color>
+    <color name="darkGrayligth">#CDCDCD</color>
+    <color name="expandible">#D0EEFB</color>
 </resources>
