@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.desserts_Fragment">
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
+            tools:visibility="gone"
             >
 
                 <LinearLayout
@@ -37,25 +36,27 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcDesserts"
-            android:layout_width="match_parent"
-            android:layout_height="630dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_pedidos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
+
         <Button
             android:id="@+id/btn_pedidos"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_alignBottom="@+id/rcDesserts"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="-60dp"
-            android:background="@drawable/desing_button"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="@drawable/custom_button_desing"
             android:text="@string/detalles_de_pedido"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+             />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

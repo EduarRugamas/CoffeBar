@@ -34,10 +34,10 @@ class Coffe_Fragment : Fragment(){
         val view: View = inflater.inflate(R.layout.fragment_coffe, container, false)
 
         Handler().postDelayed({
-            shimmer_container.startShimmer()
-            shimmer_container.visibility = view.visibility
-            shimmer_container.stopShimmer()
-            shimmer_container.visibility = View.GONE
+            //shimmer_container.startShimmer()
+          //  shimmer_container.visibility = view.visibility
+           // shimmer_container.stopShimmer()
+           // shimmer_container.visibility = View.GONE
 
 
             rcCoffes.apply {

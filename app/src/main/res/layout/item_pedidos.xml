@@ -2,115 +2,130 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
     android:layout_marginTop="10dp"
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
     app:cardElevation="12dp"
     app:cardCornerRadius="6dp">
 
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/tabmenu">
+        android:layout_height="match_parent"
+        android:background="@color/color_new"
+
+        >
+
+        <TextView
+            android:id="@+id/ItemMesa"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Mesa 1" />
+
         <ImageView
             android:id="@+id/ItemImagen"
-            android:background="@color/white"
-            android:layout_width="90dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
-            tools:src="@drawable/logo_cafesito"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custom_image_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
-            />
+            tools:src="@drawable/logo_cafesito" />
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="55dp"
+            android:text="@string/total_a_pagar"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ItemImagen"
+            app:layout_constraintTop_toBottomOf="@+id/ItemTextoCantidad" />
 
+        <TextView
+            android:id="@+id/nombreItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ItemImagen"
+            app:layout_constraintTop_toBottomOf="@+id/ItemMesa"
+            tools:text="@string/itemCafe" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
+        <TextView
+            android:id="@+id/precioItem"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ItemImagen"
+            app:layout_constraintTop_toBottomOf="@+id/nombreItem"
+            tools:text="@string/itemprecio" />
+
+        <TextView
+            android:id="@+id/ItemTextoCantidad"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:orientation="vertical">
+            android:layout_marginStart="55dp"
+            android:text="@string/cantidad"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ItemImagen"
+            app:layout_constraintTop_toBottomOf="@+id/precioItem" />
 
-            <TextView
-                android:id="@+id/ItemMesa"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="5dp"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="19sp"
-                tools:text="Mesa 1" />
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="130dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="10dp"
-                >
-                <TextView
-                    android:id="@+id/nombreItem"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    tools:text="@string/itemCafe" />
-                <TextView
-                    android:id="@+id/precioItem"
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    tools:text="@string/itemprecio" />
+        <TextView
+            android:id="@+id/ItemCantidad"
+            android:layout_width="28dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ItemTextoCantidad"
+            app:layout_constraintTop_toBottomOf="@+id/nombreItem"
+            tools:text="2" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_gravity="end"
-                android:orientation="vertical"
-                android:layout_marginTop="-46dp"
-                android:layout_marginEnd="20dp"
-                android:layout_width="100dp"
-                android:layout_height="45dp">
-                <TextView
-                    android:id="@+id/ItemTextoCantidad"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
-                    android:text="@string/cantidad" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:text="@string/itemprecio"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/ItemCantidad" />
 
-                <TextView
-                    android:id="@+id/ItemCantidad"
-                    android:layout_width="28dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    tools:text="2" />
-
-            </LinearLayout>
-
-
-
-
-
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>

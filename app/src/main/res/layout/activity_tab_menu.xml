@@ -15,7 +15,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             app:tabTextAppearance="@style/CustomTab"
-            app:tabBackground="@color/tabmenu"
+            app:tabBackground="@color/color_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="fixed"
