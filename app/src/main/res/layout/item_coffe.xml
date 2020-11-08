@@ -21,7 +21,7 @@
             android:id="@+id/linearContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/tabmenu"
+            android:background="@color/color_item"
             android:orientation="horizontal">
 
             <ImageView
@@ -66,7 +66,7 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginStart="65dp"
+                android:layout_marginStart="60dp"
                 >
                 <ImageView
                     android:id="@+id/image_expandido"
@@ -173,7 +173,7 @@
                     android:id="@+id/boton_enviar_orden"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_desing"
+                    android:background="@drawable/desing_button_all"
                     android:drawableStart="@drawable/icon_add"
                     android:drawablePadding="-12dp"
                     android:layout_gravity="center_vertical"

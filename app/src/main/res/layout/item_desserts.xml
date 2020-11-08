@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/fondo">
+            android:background="@color/color_item">
             <ImageView
                 android:id="@+id/imageViewPostres"
                 android:background="@color/white"
@@ -167,12 +167,14 @@
                     android:id="@+id/boton_enviar_orden_postre"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_desing"
-                    android:drawableStart="@drawable/icon_add"
-                    android:drawablePadding="-12dp"
+                    android:background="@drawable/desing_button_all"
+                    android:drawableTop="@drawable/icon_add"
+
+                    android:paddingEnd="5dp"
                     android:layout_gravity="center_vertical"
                     android:text="@string/enviar_orden"
-                    android:textColor="@color/tabmenu" />
+                    android:textColor="@color/tabmenu"
+                    tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
         </LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout_tab_menu"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,33 +9,53 @@
     tools:context=".Screens.TabMenu">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
-            app:tabTextAppearance="@style/CustomTab"
-            app:tabBackground="@color/color_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="fixed"
-            app:tabMaxWidth="0dp"
+            app:tabBackground="@color/color_new"
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/white"
-            app:tabTextColor="@color/white"/>
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/CustomTab"
+            app:tabTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_orden_pedidos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
     </androidx.viewpager.widget.ViewPager>
-    
-    
-    
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <Button
+        android:id="@+id/btn_orden_pedidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/desing_button_all"
+        android:drawableTop="@drawable/shopping_cart"
+        android:paddingTop="5dp"
+        android:paddingBottom="7dp"
+        android:layout_margin="5dp"
+        android:text="@string/detalles_de_pedido"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

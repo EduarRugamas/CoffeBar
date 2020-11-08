@@ -17,4 +17,8 @@
     <color name="darkGrayligth">#CDCDCD</color>
     <color name="expandible">#D0EEFB</color>
     <color name="color_new">#27A797</color>
+    <color name="colr_new">#F07171</color>
+    <color name="color_buttons">#66bfbf</color>
+    <color name="color_item">#f76b8a</color>
+    <color name="item_colors">#F07171</color>
 </resources>

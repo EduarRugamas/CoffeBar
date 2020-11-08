@@ -13,15 +13,16 @@ import com.example.coffeqr.Adapters.AdapterPedidos
 import com.example.coffeqr.Class.DataPedidos
 import com.example.coffeqr.R
 import com.example.coffeqr.Utils.toast
+import com.google.android.material.animation.AnimationUtils
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_orden_pedidos.*
 import kotlinx.android.synthetic.main.activity_orden_pedidos.shimmer_container
 
 @Suppress("DEPRECATION")
-class OrdenPedidos : AppCompatActivity(), AdapterPedidos.onClicDeleteItem {
+class OrdenPedidos : AppCompatActivity(){
 
         private val listaPedidos: ArrayList<DataPedidos> = ArrayList()
-        private  val AdapterP = AdapterPedidos(listaPedidos, this)
+        private  val AdapterP = AdapterPedidos(listaPedidos)
         val dbPedidos = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,11 +39,12 @@ class OrdenPedidos : AppCompatActivity(), AdapterPedidos.onClicDeleteItem {
             rc_pedidos.adapter = AdapterP
             loadRecyclerViewBD()
 
-        },5000)
+        },8000)
 
 
         btn_pagar.setOnClickListener {
             startActivity(Intent(this, ActivityPagos::class.java))
+            layout_orden_pedidos.animation = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.slide_anim)
         }
 
     }
@@ -73,54 +75,7 @@ class OrdenPedidos : AppCompatActivity(), AdapterPedidos.onClicDeleteItem {
         }
     }
 
-    override fun onClickDeleteItem(id: String) {
 
-        AlertDialog.Builder(this)
-            .setTitle("Eliminar de la lista de pedido")
-            .setMessage("Desea eliminar este pedido")
-            .setNegativeButton(R.string.cancel) { _, _ -> }
-            .setPositiveButton(R.string.si){ _,_ -> eliminarItem(id) }
-            .create()
-            .show()
-
-    }
-    private fun eliminarItem(idP:String){
-
-
-        dbPedidos.collection("Pedidos")
-            .document(idP)
-            .delete().addOnSuccessListener {
-                toast("Item eliminado correctamente")
-            }.addOnFailureListener {
-                toast("No se pudo eliminar este Item")
-            }
-
-        //Log.d("id de parametro", idP)
-
-        updateDataRecyclerView()
-    }
-    private fun updateDataRecyclerView(){
-        dbPedidos.collection("Pedidos").addSnapshotListener { result, error ->
-            if (error !=  null) toast("No se a podido actualizar la lista")
-
-            listaPedidos.clear()
-
-            result?.forEach {
-                val id = it.id
-                val imagen = it.getString("Imagen")
-                val mesa = it.getString("Mesa")
-                val nombre = it.getString("Nombre")
-                val cantidad = it.getLong("Cantidad")
-                val precio = it.getString("Precio")
-
-                if (imagen != null && mesa != null &&nombre != null &&cantidad != null && precio != null){
-                    listaPedidos.add(DataPedidos(id,imagen,mesa,nombre,cantidad.toString(),precio))
-                }
-                //Log.d("id de update", id)
-            }
-            AdapterP.notifyDataSetChanged()
-        }
-    }
 
 
 

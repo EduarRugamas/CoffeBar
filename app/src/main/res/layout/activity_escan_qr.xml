@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_escaneo_qr"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -52,24 +53,14 @@
         android:id="@+id/btn_navegacion"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="192dp"
-        android:background="@drawable/custom_button_desing"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/desing_button_all"
         android:text="@string/abrir_menu"
-        android:textColor="@color/color_new"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/decoration_inferioir_splash"
-        android:layout_width="800dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/decoracion_inferior"
-        app:layout_constraintTop_toTopOf="@+id/btn_navegacion"
-        tools:ignore="ContentDescription,MissingConstraints"
-        tools:layout_editor_absoluteX="-310dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,7 @@ import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
+import com.google.android.material.animation.AnimationUtils
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.DexterBuilder
 import com.karumi.dexter.PermissionToken
@@ -69,7 +70,11 @@ class ActivityEscanQR : AppCompatActivity() {
 
             setUpControl()
             btn_navegacion.visibility = if (QR_result.text == "") View.VISIBLE else View.GONE
-            btn_navegacion.setOnClickListener {startActivity(Intent(this,TabMenu::class.java))}
+            btn_navegacion.setOnClickListener {
+                startActivity(Intent(this,TabMenu::class.java))
+                layout_escaneo_qr.animation = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.slide_anim)
+
+            }
 
 
 

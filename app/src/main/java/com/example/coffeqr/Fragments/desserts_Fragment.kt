@@ -45,10 +45,7 @@ class desserts_Fragment : Fragment() {
                 }
             },5000)
 
-        view.btn_pedidos.setOnClickListener {
-            val intent = Intent(requireActivity(), OrdenPedidos::class.java)
-            startActivity(intent)
-        }
+
 
         return view
     }

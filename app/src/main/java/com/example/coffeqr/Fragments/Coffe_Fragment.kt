@@ -17,7 +17,7 @@ import com.example.coffeqr.R
 import com.example.coffeqr.Screens.OrdenPedidos
 import kotlinx.android.synthetic.main.fragment_coffe.*
 import kotlinx.android.synthetic.main.fragment_coffe.view.*
-import kotlinx.android.synthetic.main.fragment_coffe.view.btn_pedidos
+//import kotlinx.android.synthetic.main.fragment_coffe.view.btn_pedidos
 
 
 class Coffe_Fragment : Fragment(){
@@ -34,10 +34,10 @@ class Coffe_Fragment : Fragment(){
         val view: View = inflater.inflate(R.layout.fragment_coffe, container, false)
 
         Handler().postDelayed({
-            //shimmer_container.startShimmer()
-          //  shimmer_container.visibility = view.visibility
-           // shimmer_container.stopShimmer()
-           // shimmer_container.visibility = View.GONE
+            shimmer_container.startShimmer()
+            shimmer_container.visibility = view.visibility
+            shimmer_container.stopShimmer()
+            shimmer_container.visibility = View.GONE
 
 
             rcCoffes.apply {
@@ -51,10 +51,6 @@ class Coffe_Fragment : Fragment(){
             }
         },2000)
 
-        view.btn_pedidos.setOnClickListener {
-            val intent = Intent(requireActivity(), OrdenPedidos::class.java)
-            startActivity(intent)
-        }
 
         return view
     }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/layout_conta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:paddingBottom="30dp"
+        android:background="@drawable/custom_layout_alert_dialog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessLeaf">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/eliminar_pedido"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/eliminara_este_pedido"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+
+        android:background="@drawable/custom_icon_alert_dialog"
+        android:src="@drawable/icon_delete"
+       app:layout_constraintBottom_toTopOf="@id/layout_conta"
+        app:layout_constraintTop_toTopOf="@id/layout_conta"
+        app:layout_constraintStart_toStartOf="@id/layout_conta"
+        app:layout_constraintEnd_toEndOf="@id/layout_conta"
+        tools:ignore="ContentDescription,RtlSymmetry" />
+
+    <Button
+        android:id="@+id/eliminar"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/desing_button_all"
+        android:text="@string/eliminar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/layout_conta"
+        app:layout_constraintEnd_toEndOf="@id/layout_conta"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="@id/layout_conta"
+        app:layout_constraintTop_toBottomOf="@+id/layout_conta"
+        app:layout_constraintVertical_bias="0.266" />
+
+    <Button
+        android:id="@+id/Cancelar"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/desing_button_cancelar_alert"
+        android:text="@string/cancelar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/eliminar"
+        app:layout_constraintEnd_toStartOf="@+id/eliminar"
+        app:layout_constraintTop_toTopOf="@+id/eliminar"
+         />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

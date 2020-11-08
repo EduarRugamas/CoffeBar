@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:text="@string/menu_qr"
         android:textSize="28sp"
-        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
         />
@@ -24,7 +25,7 @@
         android:layout_width="300dp"
         android:layout_height="370dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/logo_cafesito"
         tools:ignore="ContentDescription" />
     <ProgressBar
@@ -35,17 +36,18 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="-30dp"
-        android:indeterminateTint="@color/progressBar"
+        android:indeterminateTint="@color/colr_new"
         />
 
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="@string/todos_los_derechos_reservados"
+        android:textColor="@color/darkGray" />
 
-    <ImageView
-        android:id="@+id/decoration_inferioir_splash"
-        android:layout_width="800dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="-280dp"
-        android:src="@drawable/decoracion_inferior"
-        tools:ignore="ContentDescription" />
 
 </LinearLayout>
