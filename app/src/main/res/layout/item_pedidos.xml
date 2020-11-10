@@ -114,11 +114,12 @@
             tools:text="2" />
 
         <TextView
+            android:id="@+id/total_pagar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:text="@string/itemprecio"
+            tools:text="@string/itemprecio"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold"

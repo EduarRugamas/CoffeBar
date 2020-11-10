@@ -84,7 +84,7 @@ class CoffeAdapter constructor(
             itemView.boton_enviar_orden.setOnClickListener {
 
                 nombreCafe = cafes.nombre
-                precioCafe = cafes.getPrice()
+                precioCafe = cafes.precio.toString()
                 Imagen = cafes.imagen
 
                 val dataCafes = hashMapOf(

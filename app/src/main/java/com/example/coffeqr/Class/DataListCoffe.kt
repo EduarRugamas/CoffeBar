@@ -1,7 +1,5 @@
 package com.example.coffeqr.Class
 
-import android.os.Parcel
-import android.os.Parcelable
 
  class DataListCoffe (
     val nombre: String,

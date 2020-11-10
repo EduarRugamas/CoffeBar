@@ -28,7 +28,7 @@
     <string name="realizar_pago">Realizar pago</string>
     <string name="todos_los_derechos_reservados">Todos los Derechos Reservados</string>
     <string name="cancelar_pedido">¿Cancelar Pedido? </string>
-    <string name="eliminar_pedido">Eliminar Pedido</string>
+    <string name="eliminar_pedido">¿Deseas eliminar este pedido?</string>
     <string name="eliminara_este_pedido">Se eliminara este pedido de tu orden</string>
     <string name="eliminar">Eliminar</string>
     <string name="cancelar">Cancelar</string>

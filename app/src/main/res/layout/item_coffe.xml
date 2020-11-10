@@ -174,8 +174,6 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/desing_button_all"
-                    android:drawableStart="@drawable/icon_add"
-                    android:drawablePadding="-12dp"
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/tabmenu"
                     android:text="@string/enviar_orden"

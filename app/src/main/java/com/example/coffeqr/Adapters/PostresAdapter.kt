@@ -87,7 +87,7 @@ constructor(
             itemView.boton_enviar_orden_postre.text = "add orden"
             itemView.boton_enviar_orden_postre.setOnClickListener {
                 nombrePostre = postres.nombre
-                precioPostre = postres.getPrice()
+                precioPostre = postres.precio.toString()
                 Imagen = postres.imagen
 
                 val dataPostre = hashMapOf(

@@ -1,6 +1,6 @@
 package com.example.coffeqr.Fragments
 
-import android.content.Intent
+
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -9,15 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffeqr.Adapters.PostresAdapter
-import com.example.coffeqr.Class.DataListCoffe
 import com.example.coffeqr.Class.DataListPostres
 import com.example.coffeqr.R
-import com.example.coffeqr.Screens.OrdenPedidos
 import kotlinx.android.synthetic.main.fragment_desserts.*
 import kotlinx.android.synthetic.main.fragment_desserts.view.*
 
 
 
+@Suppress("DEPRECATION")
 class desserts_Fragment : Fragment() {
 
     val postreLista = ArrayList<DataListPostres>()

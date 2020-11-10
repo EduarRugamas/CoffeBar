@@ -168,8 +168,6 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/desing_button_all"
-                    android:drawableTop="@drawable/icon_add"
-
                     android:paddingEnd="5dp"
                     android:layout_gravity="center_vertical"
                     android:text="@string/enviar_orden"

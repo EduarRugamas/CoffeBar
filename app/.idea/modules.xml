@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1596593398/CoffeBar-CoffeQR.iml" filepath="$PROJECT_DIR$/.idea/modules/-1596593398/CoffeBar-CoffeQR.iml" group="CoffeQR" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/502686794/CoffeQR.iml" filepath="$PROJECT_DIR$/.idea/modules/502686794/CoffeQR.iml" group="CoffeQR" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoffeQR-app.iml" filepath="$PROJECT_DIR$/.idea/modules/CoffeQR-app.iml" group="CoffeQR/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="CoffeQR/app" />
     </modules>
   </component>
