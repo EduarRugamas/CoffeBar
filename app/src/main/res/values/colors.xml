@@ -21,4 +21,17 @@
     <color name="color_buttons">#66bfbf</color>
     <color name="color_item">#f76b8a</color>
     <color name="item_colors">#F07171</color>
+    <color name="P_color_button">#1B7294</color>
+    <color name="P_color_items">#E05570</color>
+    <color name="color_Cafe">#753D24</color>
+    <color name="color_cafe_2">#C2643D</color>
+    <color name="color_cafe_3">#C23000</color>
+    <color name="colo_cafe_4">#6F4E37</color>
+    <color name="cafe_1">#BA7C45</color>
+    <color name="cafe_2">#B48969</color>
+    <color name="verde_1">#308F48</color>
+    <color name="colors">#DE6A71</color>
+    <color name="marron">#6F4E37</color>
+    <color name="marron_2">#804000</color>
+    <color name="marron_3">#B9935A</color>
 </resources>

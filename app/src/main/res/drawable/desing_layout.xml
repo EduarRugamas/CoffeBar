@@ -9,10 +9,10 @@
     </solid>
 
     <!-- Color y ancho del borde del elemento -->
-    <stroke
+    <!-- <stroke
         android:width="2dp"
-        android:color="@color/tabmenu" >
-    </stroke>
+        android:color="@color/color_Cafe" >
+    </stroke>-->
 
     <!-- Si queremos añadir algún padding -->
     <!--<padding

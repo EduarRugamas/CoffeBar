@@ -21,7 +21,7 @@
             android:id="@+id/linearContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_item"
+            android:background="@color/marron"
             android:orientation="horizontal">
 
             <ImageView
@@ -60,13 +60,14 @@
                     android:textStyle="bold"
                     tools:text="@string/itemprecio" />
 
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="40dp"
                 >
                 <ImageView
                     android:id="@+id/image_expandido"
@@ -85,7 +86,7 @@
             android:id="@+id/Layout_expandible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/expandible"
+            android:background="@drawable/custom_expandible_items"
             android:orientation="vertical"
             android:visibility="visible">
 
@@ -97,7 +98,7 @@
                 android:layout_marginTop="8dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 />
 
 
@@ -105,12 +106,13 @@
                 android:id="@+id/tetx_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/darkGray"
+                android:textColor="@color/white"
                 android:layout_marginTop="3dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 android:textStyle="bold"
                 android:textSize="18sp"
+                android:textAlignment="center"
                 tools:text="esta es la descripcion de los items"
                 />
 
@@ -121,13 +123,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/agrega_orden"
                 android:textAlignment="center"
-                android:textColor="@color/tabmenu"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 />
 
             <LinearLayout
-                android:layout_width="250dp"
+                android:layout_width="270dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
@@ -140,10 +142,10 @@
                     android:id="@+id/boton_menos"
                     android:layout_width="42dp"
                     android:layout_height="42dp"
-                    android:layout_marginStart="11dp"
+                    android:layout_marginStart="18dp"
                     android:layout_gravity="center_vertical"
                     android:background="#00FFFFFF"
-                    android:src="@drawable/button_menos"
+                    android:src="@drawable/icon_minus"
                     tools:ignore="ContentDescription" />
 
                 <TextView
@@ -152,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
-                    android:textColor="@color/tabmenu"
+                    android:textColor="@color/colo_cafe_4"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     android:text="@string/zero" />
@@ -166,17 +168,19 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="8dp"
                     android:background="#00FFFFFF"
-                    android:src="@drawable/button_mas"
+                    android:src="@drawable/icon_add"
                     tools:ignore="ContentDescription" />
 
                 <Button
                     android:id="@+id/boton_enviar_orden"
-                    android:layout_width="100dp"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/desing_button_all"
-                    android:layout_gravity="center_vertical"
-                    android:textColor="@color/tabmenu"
+                    android:background="@drawable/desing_button_cafes"
+                    android:layout_gravity="center"
+                    android:textColor="@color/marron"
                     android:text="@string/enviar_orden"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
                     />
             </LinearLayout>
 

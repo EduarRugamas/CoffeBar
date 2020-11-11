@@ -41,11 +41,12 @@ class CoffeAdapter constructor(
 
             //codigo para el desplego del carrito de items cafe
             val esExpandible: Boolean = listaCaffes[position].expandible
-            holder.layout_expandible.visibility = if (esExpandible) VISIBLE else View.GONE
+            holder.layout_expandible.visibility = if (esExpandible) VISIBLE  else View.GONE
 
             holder.layout_container.setOnClickListener {
                 val cafes = listaCaffes[position]
                 cafes.expandible = !cafes.expandible
+
                 notifyItemChanged(position)
 
                 holder.itemView.cantidad_product_cafes.text = "0"
