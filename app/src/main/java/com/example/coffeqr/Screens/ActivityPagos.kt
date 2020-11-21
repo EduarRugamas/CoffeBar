@@ -1,5 +1,6 @@
 package com.example.coffeqr.Screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
@@ -16,6 +17,7 @@ class ActivityPagos : AppCompatActivity() {
 
         btn_efectivo.setOnClickListener {
             toast("Pago Con efectivo")
+            startActivity(Intent(this,Activity_Final::class.java))
         }
 
         btn_tarjeta.setOnClickListener{
@@ -31,6 +33,13 @@ class ActivityPagos : AppCompatActivity() {
             }
 
         }
+
+        button_realizar_pago.setOnClickListener {
+            toast("Has realizado el pago correctamente")
+            startActivity(Intent(this,Activity_Final::class.java))
+        }
+
+
 
     }
 

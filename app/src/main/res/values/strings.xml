@@ -33,5 +33,9 @@
     <string name="eliminar">Eliminar</string>
     <string name="cancelar">Cancelar</string>
     <string name="escanear_qr">Escanear QR</string>
+    <string name="tu_orden_esta_en_camino">Tu orden esta en camino</string>
+    <string name="realiza_tu_pago">Realiza tu pago</string>
+    <string name="detalles_de_tu_orden">Detalles de tu orden</string>
+    <string name="no_cierres_la_aplicacion">No cierres la aplicacion</string>
 
 </resources>
