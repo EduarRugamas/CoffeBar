@@ -44,11 +44,6 @@ class ActivityEscanQR : AppCompatActivity() {
         if (txt_result.text == ""){
             btn_navegacion.visibility = View.GONE
             toast("Codigo QR no escaneado")
-        }else {
-            btn_navegacion.visibility = View.VISIBLE
-            btn_navegacion.setOnClickListener {
-                startActivity(Intent(this@ActivityEscanQR, TabMenu::class.java))
-            }
         }
 
 
@@ -119,6 +114,11 @@ class ActivityEscanQR : AppCompatActivity() {
                 val qrCodes: SparseArray<Barcode> = detections.detectedItems
                 val code = qrCodes.valueAt(0)
                 txt_result.text = code.displayValue
+            }else{
+                btn_navegacion.visibility = View.VISIBLE
+                btn_navegacion.setOnClickListener {
+                    startActivity(Intent(this@ActivityEscanQR, TabMenu::class.java))
+                }
             }
 
         }
