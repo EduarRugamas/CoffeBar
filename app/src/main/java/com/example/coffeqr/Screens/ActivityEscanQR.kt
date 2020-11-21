@@ -1,5 +1,6 @@
 package com.example.coffeqr.Screens
 
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -17,116 +18,46 @@ import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
+import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_escan_qr.*
 
 
 class ActivityEscanQR : AppCompatActivity() {
-
-    private val requestCodeCameraPermission = 1001
-    private lateinit var cameraSource: CameraSource
-    private lateinit var detector: BarcodeDetector
-    private lateinit var txt_result: TextView
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_escan_qr)
 
-         txt_result = findViewById(R.id.QR_result)
 
-        if (ContextCompat.checkSelfPermission(this@ActivityEscanQR, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-
-            askForCameraPermission()
-        } else {
-            setupControl()
-        }
-
-        if (txt_result.text == ""){
-            btn_navegacion.visibility = View.GONE
-            toast("Codigo QR no escaneado")
-        }else if (txt_result.text != null){
-            btn_navegacion.visibility = View.VISIBLE
-            btn_navegacion.setOnClickListener {
-                startActivity(Intent(this@ActivityEscanQR, TabMenu::class.java))
-
-            }
+        btn_escaneo.setOnClickListener {
+            val scanner = IntentIntegrator(this)
+            scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES)
+            scanner.setBeepEnabled(false)
+            scanner.initiateScan()
         }
 
 
     }
 
-    private fun setupControl() {
-        detector = BarcodeDetector.Builder(this@ActivityEscanQR).build()
-        cameraSource = CameraSource.Builder(applicationContext, detector).setAutoFocusEnabled(true).build()
-
-
-        escaneo_qr.holder.addCallback(surfaceCallBack)
-
-
-        detector.setProcessor(processor)
-    }
-
-    private fun askForCameraPermission() {
-        ActivityCompat.requestPermissions(this@ActivityEscanQR, arrayOf(android.Manifest.permission.CAMERA), requestCodeCameraPermission)
-
-
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == requestCodeCameraPermission && grantResults.isNotEmpty()){
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
-
-                setupControl()
-            }else{
-                Toast.makeText(applicationContext, "Permission denied", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-    private val surfaceCallBack = object : SurfaceHolder.Callback{
-        override fun surfaceCreated(surfaceHolder: SurfaceHolder) {
-            try {
-                if (ActivityCompat.checkSelfPermission(
-                                this@ActivityEscanQR,
-                                android.Manifest.permission.CAMERA
-                        ) != PackageManager.PERMISSION_GRANTED
-                ) {
-
-                    return
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK){
+            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+            if (result !=  null){
+                if(result.contents == null) {
+                    Toast.makeText(this, "No se pudo Escanear", Toast.LENGTH_LONG).show()
+                } else {
+                    btn_navegacion.visibility = View.VISIBLE
+                    //Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
+                    QR_result.text = result.contents
+                    btn_navegacion.setOnClickListener {
+                        startActivity(Intent(this, TabMenu::class.java))
+                    }
                 }
-                cameraSource.start(surfaceHolder)
-            }catch (exception: Exception){
-                Toast.makeText(applicationContext, "something wnet wrong", Toast.LENGTH_SHORT).show()
 
+            }else{
+                super.onActivityResult(requestCode, resultCode, data)
             }
         }
-
-        override fun surfaceChanged(p0: SurfaceHolder, p1: Int, p2: Int, p3: Int) {
-
-        }
-
-        override fun surfaceDestroyed(p0: SurfaceHolder) {
-            cameraSource.stop()
-        }
     }
-    private val processor = object : Detector.Processor<Barcode>{
-        override fun release() {
-
-        }
-
-        override fun receiveDetections(detections: Detector.Detections<Barcode>?) {
-
-            if (detections != null) {
-                val qrCodes: SparseArray<Barcode> = detections.detectedItems
-                val code = qrCodes.valueAt(0)
-                txt_result.text = code.displayValue
-
-            }
-
-        }
-    }
-
-
 }
 
 

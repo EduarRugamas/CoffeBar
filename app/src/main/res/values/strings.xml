@@ -32,5 +32,6 @@
     <string name="eliminara_este_pedido">Se eliminara este pedido de tu orden</string>
     <string name="eliminar">Eliminar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="escanear_qr">Escanear QR</string>
 
 </resources>
