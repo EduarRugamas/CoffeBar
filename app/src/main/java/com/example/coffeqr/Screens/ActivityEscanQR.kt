@@ -1,15 +1,18 @@
 package com.example.coffeqr.Screens
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.SparseArray
 import android.view.SurfaceHolder
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.coffeqr.R
+import com.example.coffeqr.Utils.toast
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
@@ -106,9 +109,15 @@ class ActivityEscanQR : AppCompatActivity() {
                 val qrCodes: SparseArray<Barcode> = detections.detectedItems
                 val code = qrCodes.valueAt(0)
                 txt_result.text = code.displayValue
-            }else{
-                txt_result.text = ""
-
+            }
+            if (txt_result.text == ""){
+                btn_navegacion.visibility = View.GONE
+                toast("Codigo QR no escaneado")
+            }else {
+                btn_navegacion.visibility = View.VISIBLE
+                btn_navegacion.setOnClickListener {
+                    startActivity(Intent(this@ActivityEscanQR, TabMenu::class.java))
+                }
             }
         }
     }
