@@ -34,11 +34,14 @@ class ActivityPagos : AppCompatActivity() {
 
         }
 
-        button_realizar_pago.setOnClickListener {
-            toast("Has realizado el pago correctamente")
-            startActivity(Intent(this,Activity_Final::class.java))
+        if (numero_tarjeta == null && edi_text_name == null && editext_cvv == null && editext_fecha == null){
+            toast("Los Campos estan vacios")
+        }else {
+            button_realizar_pago.setOnClickListener {
+                toast("Has realizado el pago correctamente")
+                startActivity(Intent(this, Activity_Final::class.java))
+            }
         }
-
 
 
     }

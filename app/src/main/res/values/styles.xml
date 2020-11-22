@@ -13,8 +13,8 @@
     </style>
     <style name="AppThemeMenu" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/tabmenu</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/color_new</item>
+        <item name="colorPrimaryDark">@color/color_new</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="CustomTab" parent="TextAppearance.Design.Tab">

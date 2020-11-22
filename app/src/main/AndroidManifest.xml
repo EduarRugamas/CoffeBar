@@ -14,9 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".Screens.Activity_Final"></activity>
-        <activity android:name=".Screens.ActivityPagos" />
-        <activity android:name=".Screens.OrdenPedidos" />
+        <activity android:name=".Screens.Activity_Final"
+            android:theme="@style/AppThemeMenu"/>
+        <activity android:name=".Screens.ActivityPagos"
+            android:theme="@style/AppThemeMenu"
+            />
+        <activity android:name=".Screens.OrdenPedidos"
+            android:theme="@style/AppThemeMenu"
+            />
         <activity
             android:name=".Splash.SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
