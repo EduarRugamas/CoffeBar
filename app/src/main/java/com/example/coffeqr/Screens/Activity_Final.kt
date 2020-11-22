@@ -32,7 +32,7 @@ class Activity_Final : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                toast("Tu orden en camino y puedes Cerrar la Aplicacion")
+                toast("Tu orden esta en camino y puedes cerrar la Aplicacion")
 
             }
 

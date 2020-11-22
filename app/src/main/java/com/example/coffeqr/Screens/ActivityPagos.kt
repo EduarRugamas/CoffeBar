@@ -2,12 +2,14 @@ package com.example.coffeqr.Screens
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.coffeqr.R
 import com.example.coffeqr.Utils.toast
+import com.google.protobuf.Empty
 import kotlinx.android.synthetic.main.activity_pagos.*
 
 class ActivityPagos : AppCompatActivity() {
@@ -34,14 +36,22 @@ class ActivityPagos : AppCompatActivity() {
 
         }
 
-        if (numero_tarjeta == null && edi_text_name == null && editext_cvv == null && editext_fecha == null){
-            toast("Los Campos estan vacios")
-        }else {
-            button_realizar_pago.setOnClickListener {
-                toast("Has realizado el pago correctamente")
-                startActivity(Intent(this, Activity_Final::class.java))
+        button_realizar_pago.setOnClickListener {
+            val Ntarjeta = numero_tarjeta.text
+            val nombre = edi_text_name.text
+            val fecha = editext_fecha.text
+            val cvv = editext_cvv.text
+            if (TextUtils.isEmpty(Ntarjeta) && TextUtils.isEmpty(nombre) && TextUtils.isEmpty(fecha) && TextUtils.isEmpty(cvv) ){
+                numero_tarjeta.error = "Campo vacio"
+                edi_text_name.error = "Campo vacio"
+                editext_fecha.error = "Campo vacio"
+                editext_cvv.error = "Campo vacio"
+            }else{
+                toast("Pago realizado correctamente")
+                startActivity(Intent(this,Activity_Final::class.java))
             }
         }
+
 
 
     }
